@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"mehmetkocagz/datascraper"
 	"mehmetkocagz/model"
 	"net/http"
@@ -11,8 +12,15 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func init() {
-	datascraper.ScrapeDataFromOpenWeatherAPI("Istanbul")
+func keepAliveDatabase() {
+	ticker := time.NewTicker(1 * time.Minute)
+	for range ticker.C {
+		fmt.Println("Inside keepAliveDatabase()")
+		city := []string{"Istanbul", "Ankara", "Izmir", "Bursa", "Adana", "Gaziantep", "Konya", "Antalya", "Kayseri", "Mersin"}
+		rand.Seed(time.Now().UnixNano())
+		randomNumber := rand.Intn(10)
+		datascraper.ScrapeDataFromOpenWeatherAPI(city[randomNumber])
+	}
 }
 
 func ServeHome(w http.ResponseWriter, r *http.Request) {
@@ -22,6 +30,8 @@ func ServeHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	// keep alive database
+	go keepAliveDatabase()
 	// create a new router
 	r := mux.NewRouter()
 

@@ -44,6 +44,9 @@ func ScrapeDataFromOpenWeatherAPI(city string) {
 	// Insert Data to Postgres
 
 	db := database.Connect()
+	// delete old data with same city name
+	deleteSmt := "DELETE FROM weatherdata WHERE city = $1"
+	db.Exec(deleteSmt, weatherData.Name)
 	insertSmt := "INSERT INTO weatherdata (city, temp, feelslike, tempmin, tempmax, pressure, humidity) VALUES ($1, $2, $3, $4, $5, $6, $7)"
 	db.Exec(insertSmt, weatherData.Name, weatherData.Main.Temp, weatherData.Main.FeelsLike, weatherData.Main.TempMin, weatherData.Main.TempMax, weatherData.Main.Pressure, weatherData.Main.Humidity)
 }
