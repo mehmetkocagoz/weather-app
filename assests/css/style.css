@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins',sans-serif;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+.weather-box{
+    background: red;
+    width: 40%;
+    height: 40%;
+    border: 1px solid blue;
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    box-shadow: 2rem;
+}
+.today-weather{
+    background: darkblue;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+    border: 0.2px solid blue;
+}
+.today-weather .temperature{
+    padding: 0.5rem;
+}
+.today-weather .day{
+    padding: 0.5rem;
+    text-align: left;
+}
+.weekly-weather{
+    background:green;
+    width: 100%;
+    height: 35%;
+    display:flex;
+}
+.weekly-weather .weekly-weather-container{
+    background: yellow;
+    width: 20%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid blue;
+    text-align: center;
+}
+.weekly-weather-container p,
+.weekly-weather-container h3{
+    padding: 3%;
+    font-size: 1.2rem;
+}
+.weekly-weather-container i{
+    padding: 2%;
+    font-size: 3rem;
+}
+.warranty-message{
+    background: sienna;
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    padding: 1rem;
+    border: 0.2px solid blue;
+    font-size: 1.2rem;
+}
+.warranty-message p{
+    padding: 1rem;
+    font-size: 1.2rem;
+}
