@@ -9,11 +9,11 @@
     <body>
        <div class="weather-box">
             <div class="today-weather">
-                <h1>City Name</h1>
+                <h1>{{.Name}}</h1>
                 <p>Status</p>
                 <h2 class="temperature">Temperature</h2>
                     <div class="pressure-humidity">
-                        <p>Pressure: Humidity:</p>
+                        <p>Pressure: {{.Main.Pressure}} Humidity: {{.Main.Humidity}}</p>
                     </div>
                 <h3 class="day">Friday Today</h2>
             </div>

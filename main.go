@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"mehmetkocagz/datascraper"
+	"mehmetkocagz/model"
 	"net/http"
 	"text/template"
 	"time"
@@ -9,9 +11,14 @@ import (
 	"github.com/gorilla/mux"
 )
 
+func init() {
+	datascraper.ScrapeDataFromOpenWeatherAPI("Istanbul")
+}
+
 func ServeHome(w http.ResponseWriter, r *http.Request) {
 	var tmpl = template.Must(template.ParseFiles("templates/index.html"))
-	tmpl.Execute(w, nil)
+	weatherData := model.GetWeatherDataFromPostgres("Istanbul")
+	tmpl.Execute(w, weatherData)
 }
 
 func main() {
