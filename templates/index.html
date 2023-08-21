@@ -7,10 +7,23 @@
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     </head>
     <body>
+        <div class="page-info">
+           <div class="text-box">
+            <p>Server running on localhost</p>
+            <p>Weather data came from openweathermap.org 's API</p>
+            <p>Cities: Istanbul, Ankara, Izmir, Bursa, Adana, Gaziantep, Konya, Antalya, Kayseri, Mersin</p>
+            <p>The program makes an API call to OpenWeather API every one minute for randomly selected city in the city list.</p>
+            <div class="search">
+                <input type="text" placeholder="Search City"> 
+               </div>   
+           </div>
+            
+        </div>
+
        <div class="weather-box">
             <div class="today-weather">
                 <h1>{{.Name}}</h1>
-                <p>Status</p>
+                <p>Rainy</p>
                 <h2 class="temperature">Temperature</h2>
                     <div class="pressure-humidity">
                         <p>Pressure: {{.Main.Pressure}} Humidity: {{.Main.Humidity}}</p>
